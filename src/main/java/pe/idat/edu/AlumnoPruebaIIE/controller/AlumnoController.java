@@ -19,7 +19,7 @@ import pe.idat.edu.AlumnoPruebaIIE.model.Alumno;
 import pe.idat.edu.AlumnoPruebaIIE.service.AlumnoService;
 
 @Controller
-@RequestMapping(path = "api/estudiante/v1")
+@RequestMapping(path = "/api/estudiante/v1")
 public class AlumnoController {
 	
 	@Autowired
