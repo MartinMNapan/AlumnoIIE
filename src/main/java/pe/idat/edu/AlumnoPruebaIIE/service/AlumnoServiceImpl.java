@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import pe.idat.edu.AlumnoPruebaIIE.model.Alumno;
 import pe.idat.edu.AlumnoPruebaIIE.repository.AlumnoRepository;
 
@@ -15,7 +16,7 @@ public class AlumnoServiceImpl implements AlumnoService {
 	
 	@Override
 	public List<Alumno> listar() {
-	
+		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 

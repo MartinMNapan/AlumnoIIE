@@ -15,40 +15,44 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pe.idat.edu.AlumnoPruebaIIE.model.Aula;
-import pe.idat.edu.AlumnoPruebaIIE.service.AulaService;
+import pe.idat.edu.AlumnoPruebaIIE.model.Alumno;
+import pe.idat.edu.AlumnoPruebaIIE.service.AlumnoService;
 
 @Controller
-@RequestMapping(path = "/api/aula/v1")
-public class AulaController {
+@RequestMapping(path = "api/estudiante/v1")
+public class AlumnoController {
 	
 	@Autowired
-	private AulaService service;
+	private AlumnoService service;
 	
 	@GetMapping("/listar")
-	public @ResponseBody List<Aula> listar(){
-		return service.listarAula();
+	public @ResponseBody List<Alumno> listar(){
+		return service.listar();
 	}
 	
 	@GetMapping("/listar/{id}")
-	public @ResponseBody Aula obtener(@PathVariable Integer id ) {
-		return service.obtenerAulaId(id);
+	public @ResponseBody Alumno obtener(@PathVariable Integer id){
+		return service.obtenerId(id);
 	}
 	
 	@PostMapping("/guardar")
-	public ResponseEntity<Void> guardar(@RequestBody Aula aula) {
-		service.guardarAula(aula);	
+	public ResponseEntity<Void> guardar(@RequestBody Alumno alumno){
+		service.guardar(alumno);
 		return new ResponseEntity<>(HttpStatus.CREATED);
-	}	
-	@PutMapping("/actualizar")
-	public @ResponseBody void actualizar(@RequestBody Aula aula) {
-		service.actualizarAula(aula);
 	}
-
+	
+	@PutMapping("/actualizar")
+	public @ResponseBody void actualizar(@RequestBody Alumno alumno) {
+		service.actualizar(alumno);
+	}
+	
 	@DeleteMapping("/eliminar/{id}")
 	public @ResponseBody void eliminar(@PathVariable Integer id) {
-		service.eliminarAula(id);
+		service.eliminar(id);
 	}
+	
+	
+	
 	
 	
 

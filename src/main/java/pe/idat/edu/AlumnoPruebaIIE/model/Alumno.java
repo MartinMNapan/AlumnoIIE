@@ -1,26 +1,13 @@
 package pe.idat.edu.AlumnoPruebaIIE.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 @Entity
-@Table(name = "alumno")
+@Table(name = "alumnos")
 public class Alumno {
 	
 	@Id
@@ -29,7 +16,22 @@ public class Alumno {
 	private String apellido;
 	private String nombre;
 	
-	@ManyToMany(mappedBy = "alumno", cascade = {
-			CascadeType.PERSIST, CascadeType.MERGE})
-	private List<Aula> aula = new ArrayList<>();
+	public Integer getIdAlumno() {
+		return idAlumno;
+	}
+	public void setIdAlumno(Integer idAlumno) {
+		this.idAlumno = idAlumno;
+	}
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 }
